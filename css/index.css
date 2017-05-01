@@ -1,0 +1,106 @@
+
+#grid {
+    display: flex;
+    width: 90%;
+    max-width: 100%;
+    margin: auto;
+    flex-direction: column;
+}
+
+#header-container {
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    justify-content: center;
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 4em;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    /*transform: rotate(45deg);*/
+}
+
+#game-top #game-bottom {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    max-width: 100%;
+    margin: auto;
+    position: absolute;
+    /*justify-content: space-around;*/
+
+}
+
+#blue {
+    width: 30vw;
+    height: 30vh;
+    /*margin: 0.7em;*/
+    background-color: blue;
+}
+
+#yellow {
+    width: 30vw;
+    height: 30vh;
+    /*margin: 0.7em;*/
+    background-color: yellow;
+}
+
+#green {
+    width: 30vw;
+    height: 30vh;
+    /*margin: 0.7em;*/
+    background-color: green;
+}
+
+#red {
+    width: 30vw;
+    height: 30vh;
+    /*margin: 0.7em;*/
+    background-color: red;
+}
+
+.pattern {
+    width: 30vw;
+    height: 30vh;
+    background-color: inherit;
+    background-image: url("../img/tree.png");
+    /*image-orientation: ;*/
+    background-repeat: no-repeat;
+    box-shadow: 3px 3px 5px 6px darkgrey;
+}
+
+#start {
+    width: 100%;
+    max-width: 100%;
+    /*margin: auto;*/
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    top: 20.5vh;
+}
+
+#btn {
+    width: 20vw;
+    height: 20vh;
+    border-radius: 50%;
+    background-color: black;
+    color: whitesmoke;
+    font-size: 3rem;
+    /*transform: rotate(-45deg);*/
+}
+
+
+
