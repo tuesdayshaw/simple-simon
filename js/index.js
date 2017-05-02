@@ -7,72 +7,87 @@
 
             // Variables
 
-        var colorGenerator = (Math.floor(Math.random()*4)+1);
-        var patternToRepeat = '';
+        var game = {
+            possibleSeq : ['blue', 'red', 'yellow', 'green'],
+            currentSeq : [],
+            level: 0
+        };
+        var i;
+        var userSeq = [];
+
+        // var selected = '#' + game.currentSeq;
 
 
             // Functions
 
-        function colorPattern() {
-            colorGenerator = (Math.floor(Math.random()*4)+1);
-            switch (colorGenerator) {
-                case 1:
-                    patternToRepeat += colorGenerator;
-                    $('#winter').toggleClass('pattern');
-                    break;
-                case 2:
-                    patternToRepeat += colorGenerator;
-                    $('#spring').toggleClass('pattern');
-                    break;
-                case 3:
-                    patternToRepeat += colorGenerator;
-                    $('#summer').toggleClass('pattern');
-                    break;
-                case 4:
-                    patternToRepeat += colorGenerator;
-                    $('#autumn').toggleClass('pattern');
-                    break;
-            }
+        function newSeq(){
+            game.currentSeq.push(game.possibleSeq[(Math.floor(Math.random()*4))]);
+            console.log(game.currentSeq);
         }
 
-        function levels() {
-            for(var i = 0; i < 10; i++){
-                colorPattern();
-            }
+        function newGame() {
+            game.currentSeq = [];
+            game.level = 0;
         }
 
-        $('#start').click(function () {
-            // remove any past visible pattern
-            $('*').removeClass('pattern');
-            levels();
-            //generate random color pattern
-            //show pattern for random color, display for 2 sec, clear and wait for player to respond.
-            //repeat color generator ++ for each "loop" or level
+        function animateSeq(selector){
+            //console.log(game.currentSeq);
+            $('#' + game.currentSeq).animate({
+                opacity: 0.5
+            }, 500).animate({
+                opacity: 1
+            }, 500)
+        }
 
-        });
+
+
+        function playGame() {
+
+        }
+
+
+            $('.colors').click(function () {
+                //console.log("success");
+                if ($(this).attr('id') === game.currentSeq[userSeq++]) {
+                    if (userSeq === game.currentSeq.length) {
+                        console.log("success");
+                        $('#newRound').show();
+                    }
+                }
+            });
+
 
 
             // Events
 
-        $('#blue').click(function () {
-            $('*').removeClass('pattern');
-            $('#winter').toggleClass('pattern');
-        });
+            $('#start').click(function () {
+                newGame();
+                newSeq();
+                animateSeq();
+            });
 
-        $('#yellow').click(function () {
-            $('*').removeClass('pattern');
-            $('#spring').toggleClass('pattern');
-        });
+            $('#blue').click(function () {
+                animateSeq('#blue');
+            });
 
-        $('#green').click(function () {
-            $('*').removeClass('pattern');
-            $('#summer').toggleClass('pattern');
-        });
+            $('#yellow').click(function () {
+                animateSeq('#yellow');
+            });
 
-        $('#red').click(function () {
-            $('*').removeClass('pattern');
-            $('#autumn').toggleClass('pattern');
-        })
+            $('#green').click(function () {
+                animateSeq('#green');
+            });
+
+            $('#red').click(function () {
+                animateSeq('#red');
+            });
+
+            $('#newRound').click(function () {
+                $('#newRound').hide();
+                newSeq();
+                animateSeq();
+            });
+
 
     });
 

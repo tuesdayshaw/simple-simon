@@ -72,15 +72,6 @@ h1 {
     background-color: red;
 }
 
-.pattern {
-    width: 30vw;
-    height: 30vh;
-    background-color: inherit;
-    background-image: url("../img/tree.png");
-    /*image-orientation: ;*/
-    background-repeat: no-repeat;
-    box-shadow: 3px 3px 5px 6px darkgrey;
-}
 
 #start {
     width: 100%;
@@ -99,7 +90,10 @@ h1 {
     background-color: black;
     color: whitesmoke;
     font-size: 3rem;
-    /*transform: rotate(-45deg);*/
+}
+
+#newRound {
+    display: none;
 }
 
 
