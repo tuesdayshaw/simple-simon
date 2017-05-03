@@ -2,93 +2,65 @@
  * Created by canidmars on 5/1/17.
  */
 
-    $(document).ready(function(){
+$(document).ready(function () {
     "use strict";
 
-            // Variables
+    // Variables
 
-        var game = {
-            possibleSeq : ['blue', 'red', 'yellow', 'green'],
-            currentSeq : [],
-            level: 0
-        };
-        var i;
-        var userSeq = [];
-
-        // var selected = '#' + game.currentSeq;
+    var game = {
+        possibleSeq: ['blue', 'red', 'yellow', 'green'],
+        currentSeq: [],
+        level: 0
+    };
+    var i;
+    var userSeq = [];
 
 
-            // Functions
+    // Functions
 
-        function newSeq(){
-            game.currentSeq.push(game.possibleSeq[(Math.floor(Math.random()*4))]);
-            console.log(game.currentSeq);
+    function newSeq() {
+        game.currentSeq.push(game.possibleSeq[(Math.floor(Math.random() * 4))]);
+        animateSeq();
+    }
+
+    function newGame() {
+        game.currentSeq = [];
+        game.level = 0;
+    }
+
+    function animateSeq(selector) {
+        $('#' + game.currentSeq).animate({
+            opacity: 0.5
+        }, 500).animate({
+            opacity: 1
+        }, 500)
+    }
+
+
+    //console.log("success");
+
+    // Events
+
+    $('.colors').click(function () {
+        if ($(this).attr('id') === game.currentSeq[userSeq++]) {
+            if (userSeq === game.currentSeq.length) {
+                $('#newRound').show();
+            }
         }
-
-        function newGame() {
-            game.currentSeq = [];
-            game.level = 0;
-        }
-
-        function animateSeq(selector){
-            //console.log(game.currentSeq);
-            $('#' + game.currentSeq).animate({
-                opacity: 0.5
-            }, 500).animate({
-                opacity: 1
-            }, 500)
-        }
-
-
-
-        function playGame() {
-
-        }
-
-
-            $('.colors').click(function () {
-                //console.log("success");
-                if ($(this).attr('id') === game.currentSeq[userSeq++]) {
-                    if (userSeq === game.currentSeq.length) {
-                        console.log("success");
-                        $('#newRound').show();
-                    }
-                }
-            });
-
-
-
-            // Events
-
-            $('#start').click(function () {
-                newGame();
-                newSeq();
-                animateSeq();
-            });
-
-            $('#blue').click(function () {
-                animateSeq('#blue');
-            });
-
-            $('#yellow').click(function () {
-                animateSeq('#yellow');
-            });
-
-            $('#green').click(function () {
-                animateSeq('#green');
-            });
-
-            $('#red').click(function () {
-                animateSeq('#red');
-            });
-
-            $('#newRound').click(function () {
-                $('#newRound').hide();
-                newSeq();
-                animateSeq();
-            });
-
-
     });
+
+    $('#start').click(function () {
+        newGame();
+        newSeq();
+    });
+
+    $('#newRound').click(function () {
+        $('#newRound').hide();
+        game.level++;
+        newSeq();
+    });
+
+
+});
 
 
