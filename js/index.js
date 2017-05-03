@@ -13,13 +13,14 @@ $(document).ready(function () {
         level: 0
     };
     var i;
-    var userSeq = [];
+    var userSeq = 0;
+    var count = 0;
 
-
-    // Functions
+        // Functions
 
     function newSeq() {
         game.currentSeq.push(game.possibleSeq[(Math.floor(Math.random() * 4))]);
+        console.log(game.currentSeq);
         animateSeq();
     }
 
@@ -28,38 +29,53 @@ $(document).ready(function () {
         game.level = 0;
     }
 
-    function animateSeq(selector) {
-        $('#' + game.currentSeq).animate({
+    function animateSeq() {
+        count++;
+        $('#' + game.currentSeq[count - 1]).animate({
             opacity: 0.5
         }, 500).animate({
             opacity: 1
-        }, 500)
-    }
+        }, 500, function () {
+            if (count < game.currentSeq.length){
+                animateSeq();
+            } else {
+                count = 0;
+            }
+        })
 
+    }
 
     //console.log("success");
 
     // Events
 
     $('.colors').click(function () {
-        if ($(this).attr('id') === game.currentSeq[userSeq++]) {
+        if ($(this).attr('id') === game.currentSeq[userSeq]) {
+            userSeq++;
             if (userSeq === game.currentSeq.length) {
-                $('#newRound').show();
+                //$('#newRound').show();
+                userSeq = 0;
+                game.level++;
+                newSeq();
+                $('#btn').text("Level: " + (game.level + 1));
             }
+        } else {
+            console.log('game over');
+            $('#btn').text("Game Over! Start Again!");
         }
     });
 
     $('#start').click(function () {
         newGame();
         newSeq();
+        $('#btn').text("Level: " + (game.level + 1))
     });
 
     $('#newRound').click(function () {
-        $('#newRound').hide();
-        game.level++;
-        newSeq();
+        //$('#newRound').hide();
+        // game.level++;
+        // newSeq();
     });
-
 
 });
 
