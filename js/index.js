@@ -8,7 +8,7 @@ $(document).ready(function () {
     // Variables
 
     var game = {
-        possibleSeq: ['blue', 'red', 'yellow', 'green'],
+        possibleSeq: ['aqua', 'lightpink', 'hotpink', 'purple'],
         currentSeq: [],
         level: 0
     };
@@ -45,8 +45,6 @@ $(document).ready(function () {
 
     }
 
-    //console.log("success");
-
     // Events
 
     $('.colors').click(function () {
@@ -61,7 +59,7 @@ $(document).ready(function () {
             }
         } else {
             console.log('game over');
-            $('#btn').text("Game Over! Start Again!");
+            $('#btn').text("Game Over! Start Again!").css('font-size', '2.5rem');
         }
     });
 
@@ -71,12 +69,8 @@ $(document).ready(function () {
         $('#btn').text("Level: " + (game.level + 1))
     });
 
-    $('#newRound').click(function () {
-        //$('#newRound').hide();
-        // game.level++;
-        // newSeq();
-    });
-
+    //For debugging:
+    //console.log("success");
 });
 
 

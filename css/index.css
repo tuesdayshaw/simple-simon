@@ -1,5 +1,7 @@
 body {
-    background-color: darkgrey;
+    background-image: url("../img/snuggle.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #grid {
@@ -22,6 +24,11 @@ body {
 h1 {
     text-align: center;
     font-size: 3rem;
+    color: #FFFFFF;
+}
+p {
+    text-align: center;
+    color: #FFFFFF;
 }
 
 #game-container {
@@ -29,12 +36,13 @@ h1 {
     flex-direction: row;
     width: 100%;
     max-width: 100%;
-    margin-top: 4em;
+    /*height: 75vh;*/
+    margin-top: 1em;
     justify-content: center;
     position: relative;
     z-index: 0;
-    background-color: black;
-    border-radius: 50%;
+    /*background-color: black;*/
+    /*border-radius: 50%;*/
     /*transform: rotate(45deg);*/
 }
 
@@ -48,34 +56,45 @@ h1 {
     /*justify-content: space-around;*/
 }
 
-#blue {
+#aqua {
     width: 30vw;
     height: 30vh;
     /*margin: 0.7em;*/
-    background-color:  blue;
+    background-color:  #00EEFF;
+    border-top-left-radius: 50%;
+    border-left: 1em solid black;
+    border-top: 1em solid black;
 }
 
-#yellow {
+#hotpink {
     width: 30vw;
     height: 30vh;
     /*margin: 0.7em;*/
-    background-color: yellow;
+    background-color: #FF0076;
+    border-bottom: 1em solid black;
+    border-left: 1em solid black;
+    border-bottom-left-radius: 50%;
 }
 
-#green {
+#purple {
     width: 30vw;
     height: 30vh;
     /*margin: 0.7em;*/
-    background-color: green;
+    background-color: #490065;
+    border-top-right-radius: 50%;
+    border-top: 1em solid black;
+    border-right: 1em solid black;
 }
 
-#red {
+#lightpink {
     width: 30vw;
     height: 30vh;
     /*margin: 0.7em;*/
-    background-color: red;
+    background-color: #FFEDEE;
+    border-bottom-right-radius: 50%;
+    border-bottom: 1em solid black;
+    border-right: 1em solid black;
 }
-
 
 #start {
     width: 100%;
@@ -92,16 +111,51 @@ h1 {
     height: 20vh;
     border-radius: 50%;
     background-color: black;
-    color: whitesmoke;
+    color: #FFFFFF;
     font-size: 3rem;
 }
 
-#newRound {
-    display: none;
+@media screen and (max-width: 540px){
+    #start {
+        top: 20.5vh;
+    }
+    #btn {
+        font-size: 2rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
 }
 
-.gameOver {
-
+@media screen and (max-width: 400px){
+    #start {
+        top: 24vh;
+    }
+    #btn {
+        font-size: .9rem;
+        width: 15vw;
+        height: 15vh;
+    }
 }
 
+@media screen and (max-width: 275px){
+    #start {
+        top: 28vh;
+    }
+    #btn {
+        font-size: .4rem;
+        width: 10vw;
+        height: 10vh;
+    }
+}
 
+@media screen and (max-width: 193px){
+    #start {
+        top: 30vh;
+    }
+    #btn {
+        font-size: .1rem;
+        width: 5vw;
+        height: 5vh;
+    }
+}
