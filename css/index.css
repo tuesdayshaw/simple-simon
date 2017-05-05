@@ -56,7 +56,7 @@ p {
     margin: auto;
     position: absolute;
 }
-/* .colors with width/height*/
+
 .colors {
     width: 20vw;
     height: 20vw;
@@ -128,7 +128,7 @@ p {
     #btn {
         font-size: .9rem;
         width: 15vw;
-        height: 15vw;
+        height: 15vh;
     }
 }
 
@@ -139,7 +139,7 @@ p {
     #btn {
         font-size: .4rem;
         width: 10vw;
-        height: 10vw;
+        height: 10vh;
     }
 }
 
@@ -150,7 +150,7 @@ p {
     #btn {
         font-size: .1rem;
         width: 5vw;
-        height: 5vw;
+        height: 5vh;
     }
     span {
         display:none;
